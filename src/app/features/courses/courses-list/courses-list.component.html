@@ -1,0 +1,22 @@
+<ng-container *ngIf="courses.length == 0; else courseList">
+    <app-info title="No Courses" text="There are currently no courses available.">
+        <app-button buttonText="Add new course"></app-button>
+    </app-info>
+</ng-container>
+<ng-template #courseList>
+    <ng-container *ngFor="let course of courses">
+        <app-course-card
+            [title]="course.title"
+            [description]="course.description"
+            [authors]="course.authors"
+            [duration]="course.duration"
+            [creationDate]="course.creationDate"
+            (clickOnShow)="onShowCourse(course.id)"
+            (editCourse)="onEditCourse(course.id)"
+            (deleteCourse)="onDeleteCourse(course.id)"
+        >
+        <app-button iconName="pen" (click)="onEditCourse(course.id)"></app-button>
+        <app-button iconName="trash" (click)="onDeleteCourse(course.id)"></app-button>
+    </app-course-card>
+    </ng-container>
+</ng-template>
