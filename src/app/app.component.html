@@ -1,38 +1,21 @@
-<app-header></app-header>
+<app-header><app-button [buttonText]="'Login'"></app-button></app-header>
 <div class="app-root">
   <!-- Search component -->
-  <!--<app-search></app-search>-->
+  <!-- <app-search></app-search> -->
 
   <!-- Info component -->
   <!-- <app-info></app-info> -->
 
-  <!-- Course Card component -->
-  <ng-container *ngIf="!selectedCourse; else courseInfo">
-    <app-courses-list
-      [courses]="courses"
-      (showCourse)="onShowCourse($event)">
-    </app-courses-list>
-  </ng-container>
-  <ng-template #courseInfo>
-    <app-course-info
-      [title]="selectedCourse.title"
-      [description]="selectedCourse.description"
-      [id]="selectedCourse.id"
-      [creationDate]="selectedCourse.creationDate"
-      [duration]="selectedCourse.duration"
-      [authors]="selectedCourse.authors"
-      (back)="onBack()">
-    </app-course-info>
-  </ng-template>
+  <!-- <courses-page></courses-page> -->
 
   <!-- Login Form component -->
-  <!--<app-login-form></app-login-form>-->
+  <!-- <app-login-form></app-login-form> -->
 
   <!-- Login Form component -->
-  <!--<app-registration-form></app-registration-form>-->
+  <!-- <app-registration-form></app-registration-form> -->
 
   <!-- Login Form component -->
-  <!--<app-course-form></app-course-form>-->
+  <app-course-form></app-course-form>
 
   <!-- Modal component -->
   <!-- <app-modal [message]="'Message'" [title]="'Title'" [okButtonText]="'Ok'" [cancelButtonText]="'Cancel'"></app-modal> -->

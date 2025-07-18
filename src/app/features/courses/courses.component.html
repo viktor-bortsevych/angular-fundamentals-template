@@ -1,0 +1,17 @@
+  <ng-container *ngIf="!selectedCourse; else courseInfo">
+    <app-courses-list
+      [courses]="courses"
+      (showCourse)="onShowCourse($event)">
+    </app-courses-list>
+  </ng-container>
+  <ng-template #courseInfo>
+    <app-course-info
+      [title]="selectedCourse.title"
+      [description]="selectedCourse.description"
+      [id]="selectedCourse.id"
+      [creationDate]="selectedCourse.creationDate"
+      [duration]="selectedCourse.duration"
+      [authors]="selectedCourse.authors"
+      (back)="onBack()">
+    </app-course-info>
+  </ng-template>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-form',
@@ -7,6 +7,15 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./registration-form.component.scss'],
 })
 export class RegistrationFormComponent {
-  registrationForm!: FormGroup;
-  // Use the names `name`, `email`, `password` for the form controls.
+  @ViewChild('registrationForm') registrationForm!: NgForm;
+
+  name: string = '';
+  email: string = '';
+  password: string = '';
+
+  onSubmit() {
+    if (this.registrationForm.valid) {
+      console.log('Name:', this.name, 'Email:', this.email, 'Password:', this.password);
+    }
+  }
 }
